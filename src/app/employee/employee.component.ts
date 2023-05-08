@@ -67,7 +67,6 @@ export class EmployeeComponent implements OnInit {
 
   onEditClick(){
     this.isScreenEditable = true;
-    
   }
 
   onSaveClick(){
