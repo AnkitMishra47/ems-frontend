@@ -1,0 +1,17 @@
+.home-section{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.toolbar{
+    background: none !important;
+    border: none !important;
+}
+
+::ng-deep p-toolbar{
+    .p-toolbar {
+       background: none !important;
+       border: none !important;
+    }
+}

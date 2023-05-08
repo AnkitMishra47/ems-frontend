@@ -1,0 +1,8 @@
+.message{
+    width: fit-content;
+    position: absolute;
+    right: 0px;
+    margin: 12px;
+    top: 0px;
+    font-style: italic;
+}
