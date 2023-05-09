@@ -11,5 +11,4 @@ export const employeeRoutes: Routes = [
         path: 'edit-employee/:id',
         component: EmployeeComponent
     }
-
 ];

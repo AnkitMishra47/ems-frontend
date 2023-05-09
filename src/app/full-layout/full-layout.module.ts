@@ -7,7 +7,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
 
 import { FormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { HomeComponent } from '../component/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({

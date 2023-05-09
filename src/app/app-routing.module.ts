@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './component/home/home.component';
+import { HomeComponent } from './full-layout/home/home.component';
 import { employeeRoutes } from './employee/employee.routing';
 import { SidebarComponent } from './full-layout/sidebar/sidebar.component';
 
