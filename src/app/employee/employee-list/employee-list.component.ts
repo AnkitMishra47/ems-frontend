@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild, ViewEncapsulation } from '@angular/core';
 import { Employee } from '../edit-employee/employee.model';
 import { EmployeeService } from '../edit-employee/employee.service';
 import { UtilsService } from 'src/utils/utils.service';
@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.css']
+  styleUrls: ['./employee-list.component.scss'],
+  encapsulation : ViewEncapsulation.Emulated
 })
 
 export class EmployeeListComponent implements OnInit {

@@ -1,12 +1,12 @@
 // sidebar.component.ts
-import { Component, HostListener, OnInit } from '@angular/core';
-import { MenuItem ,MegaMenuItem } from 'primeng/api';
-import { UtilsService } from 'src/utils/utils.service';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
+import { MegaMenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class SidebarComponent implements OnInit{
   items: MegaMenuItem[];
@@ -90,4 +90,3 @@ export class SidebarComponent implements OnInit{
     }
   }
 }
-

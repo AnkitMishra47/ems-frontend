@@ -1,0 +1,13 @@
+.home-section{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+*:root{
+    font-size: 12px !important;
+}
+
+::ng-deep .p-toolbar {
+    border: none !important;
+  }
