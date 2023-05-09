@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardModule } from 'primeng/card';
-import { TabMenuModule } from 'primeng/tabmenu';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -38,7 +37,6 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     BrowserModule,
     TableModule,
     BrowserAnimationsModule,
-    TabMenuModule,
     CardModule,
     InputTextModule,
     ButtonModule,
