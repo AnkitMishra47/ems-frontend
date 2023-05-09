@@ -1,2 +1,51 @@
 
+.layout-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content{
+    display: flex;
+    background-color: #f8f9fa;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.flex-5{
+    flex: 5;
+}
+
+.header{
+    background-color: #f8f9fa;
+    height: 58px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+img{
+    width: 70%;
+    height: 80%;
+}
+
+::ng-deep p-megamenu{
+    .p-megamenu.p-megamenu-vertical {
+        width: 100%;
+        padding: 0.25rem 0;
+    }
+    
+    .p-megamenu-panel {
+        right: 0px;
+    }
+
+    .p-menuitem-link {
+        background-color: #f8f9fa;
+    }
+
+    .p-megamenu-submenu-header {
+        padding: 1.25rem !important;
+    }
+}
 

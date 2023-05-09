@@ -5,13 +5,13 @@
         </div>
         <div class="p-toolbar-group-end">
             <p-button icon="pi pi-times" label="Cancel" styleClass="p-button-danger mr-2" (click)="onCancelClick()"></p-button>
-            <p-button [disabled]="!isScreenEditable" icon="pi pi-save" label="Save" styleClass="p-button-success mr-2" (click)="onSaveClick()"></p-button>
+            <p-button [disabled]="!isScreenEditable" icon="pi pi-save" label="Save" styleClass="p-button-success mr-2" (onClick)="onSaveClick()"></p-button>
         </div>
     </p-toolbar>
 
     <div class="home-section flex justify-content-center">
     <p-toast></p-toast>
-        <p-card [header]="header" [subheader]="subHeader" [style]="{ width: '400px' }">
+        <p-card [header]="header" [subheader]="subHeader" [style]="{width: '300px' ,margin: 'auto', fontsize : '12px'}">
             <ng-template pTemplate="header">
             </ng-template>
                 <div class="ui-g form-group">

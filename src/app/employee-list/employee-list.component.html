@@ -1,27 +1,30 @@
 <div class="container mt-4">
   <p-toast></p-toast>
     <h2 class="text-center">Employee List</h2>
-    <table class="table table-striped table-bordered">
-        <thead >
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let employee of employees">
-            <td>{{employee.name}}</td>
-            <td>{{employee.mobile}}</td>
-            <td>{{employee.email}}</td>
-            <td>
-              <p-button label="" icon="pi pi-pencil" iconPos="right" (click)="onEditClick(employee)"></p-button>
-            </td>
-            <td>
-              <p-button label="" styleClass="p-button-danger" icon="pi pi-trash" (click)="onDeleteClick(employee)" iconPos="right"></p-button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="table-container">
+      <p-table [value]="employees">
+        <ng-template pTemplate="header">
+            <tr>
+              <th *ngFor="let col of employeeColumns" [ngStyle]="{'width': col.width}">
+                {{col.header}}
+              </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-employee>
+            <tr>
+              <td>{{employee.name}}</td>
+              <td style="word-break: break-all;">{{employee.email}}</td>
+              <td>{{employee.mobile}}</td>
+              <td>
+                <p-button label="" icon="pi pi-pencil" styleClass="p-button-sm" iconPos="right" (click)="onEditClick(employee)"></p-button>
+              </td>
+              <td>
+                <p-button label="" styleClass="p-button-danger p-button-sm" icon="pi pi-trash" (click)="onDeleteClick(employee)" iconPos="right"></p-button>
+              </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+  
 </div>
 <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

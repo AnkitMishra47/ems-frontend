@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class EmployeeListComponent implements OnInit {
  
   employees : Employee[];
+  employeeColumns : any[];
   showMessages = false;
   
 
@@ -24,6 +25,7 @@ export class EmployeeListComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit(): void {
+    this.getColoumns();
     this.getEmployees();
   }
 
@@ -41,26 +43,37 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['edit-employee' , rowData.id]);
   }
 
-  onDeleteClick(employee : Employee){
+  onDeleteClick(employee: Employee) {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to proceed?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-         this.employeeService.deleteEmployee(employee).subscribe(
+        this.employeeService.deleteEmployee(employee).subscribe(
           {
-            next : (data) => {
+            next: (data) => {
               this.utilsService.handleSuccessMessage("Employee Deleted Successfully");
               this.getEmployees();
             }
           }
-         )
-         this
+        )
+        this
       },
       reject: () => {
-          
+
       }
-  });
+    });
   }
+
+  getColoumns(){
+    this.employeeColumns = [
+      { field: 'name', header: 'Name', width: '5%' },
+      { field: 'email', header: 'Email', width: '5%' },
+      { field: 'mobile', header: 'Mobile', width: '5%' },
+      { field: '', header: '', width: '2%' },
+      { field: '', header: '', width: '2%' }
+    ];
+  }
+
 }
 

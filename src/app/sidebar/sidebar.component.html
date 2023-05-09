@@ -1,4 +1,15 @@
-<div class="card">
-    <p-tabMenu [model]="items"></p-tabMenu>
+<div class="layout-container">
+    <div class="header">
+        <p-megaMenu *ngIf="!isDesktop" [model]="verticalItems"></p-megaMenu>
+    </div>
+       
+    <div class="content">
+        <div style="flex: 1; background: #f8f9fa;" *ngIf="isDesktop" class="card">
+            <p-megaMenu orientation="vertical" styleClass="mega-menu" [model]="items"></p-megaMenu>
+        </div>
+        <div  style="flex: 5">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
-<router-outlet></router-outlet>
+

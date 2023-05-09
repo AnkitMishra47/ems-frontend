@@ -9,6 +9,8 @@ import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { TableModule } from 'primeng/table';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +36,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     AppRoutingModule,
     HttpClientModule,
     BrowserModule,
+    TableModule,
     BrowserAnimationsModule,
     TabMenuModule,
     CardModule,
@@ -41,7 +44,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     ButtonModule,
     ConfirmDialogModule,
     ToastModule,
-    ToolbarModule
+    ToolbarModule,
+    MegaMenuModule
+
   ],
   providers: [MessageService , ConfirmationService],
   bootstrap: [AppComponent]

@@ -4,9 +4,8 @@
     width: 100%;
 }
 
-.toolbar{
-    background: none !important;
-    border: none !important;
+*{
+    font-size: 12px !important;
 }
 
 ::ng-deep p-toolbar{

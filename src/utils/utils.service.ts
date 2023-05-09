@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HostListener, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MessageService} from 'primeng/api';
 import { environment } from 'src/environments/environment';
@@ -9,10 +9,11 @@ import { environment } from 'src/environments/environment';
 })
 export class UtilsService {
   private apiURL = environment.apiUrl;
-
+  isDesktop = false;
+  isMobile = false;
 
   constructor(private httpClient : HttpClient, 
-              private msgsService : MessageService) { }
+              private msgsService : MessageService) {}
 
   getObjects(serviceName:string) : Observable<any>{
     return this.httpClient.get(this.apiURL + serviceName);
