@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { Employee } from '../employee/employee.model';
-import { EmployeeService } from '../employee/employee.service';
+import { Employee } from '../edit-employee/employee.model';
+import { EmployeeService } from '../edit-employee/employee.service';
 import { UtilsService } from 'src/utils/utils.service';
 import { ConfirmationService } from 'primeng/api';
 import { Router } from '@angular/router';

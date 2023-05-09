@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { HomeComponent } from './home/home.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeComponent } from './component/home/home.component';
+import { employeeRoutes } from './employee/employee.routing';
+import { SidebarComponent } from './full-layout/sidebar/sidebar.component';
 
 const routes: Routes = [
   {
@@ -19,14 +18,7 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
       },
-      {
-        path: 'employees-list',
-        component: EmployeeListComponent
-      },
-      {
-        path : 'edit-employee/:id',
-        component : EmployeeComponent
-      }
+      ...employeeRoutes
     ]
   }
 
