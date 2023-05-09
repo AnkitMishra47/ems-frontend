@@ -21,7 +21,7 @@ td, th{
         margin: auto;
     }
 
-    ::ng-deep p-table{
+    :host ::ng-deep p-table{
         .p-datatable .p-datatable-tbody > tr > td {
             text-align: left;
             border: 1px solid #dee2e6;
@@ -30,7 +30,7 @@ td, th{
         }
     }
 
-    ::ng-deep p-button{
+    :host ::ng-deep p-button{
         .p-button.p-button-sm {
             font-size: 0.175rem;
             padding: 0.25rem 1.09375rem;
