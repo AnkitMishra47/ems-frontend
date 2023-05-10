@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UtilsService } from 'src/utils/utils.service';
 import { ADD_EMPLOYEE, ADD_EMPLOYEE_SUBHEADER, EDIT_EMPLOYEE, EDIT_EMPLOYEE_SUBHEADER } from 'src/utils/constant';
+import { EnumService } from 'src/utils/enum.service';
 
 @Component({
   selector: 'app-employee',
@@ -20,16 +21,23 @@ export class EmployeeComponent implements OnInit {
   isScreenEditable = true;
   showLoader = false;
   showData=false;
+  selectedValue : any;
+  genders : any[];
   @ViewChild('myForm') myForm : NgForm;
+
 
   constructor(private employeeService : EmployeeService,
               private router  : Router, 
               private route  : ActivatedRoute,
-              private utilsService  : UtilsService){}
+              private utilsService  : UtilsService,
+              private enumService : EnumService){}
 
   ngOnInit(): void {
     // do nothing
     this.showLoader = true;
+
+    this.getGenderOptions();
+
     this.route.params.subscribe(
       (params) => {
         if(params['id'] && params['id'] !== '0'){
@@ -102,5 +110,18 @@ export class EmployeeComponent implements OnInit {
             this.showLoader = false;
           }
         })
+  }
+
+  getGenderOptions(){
+    this.enumService.getGenders().subscribe(
+      {
+        next : (data)=>{
+          this.genders = data;
+        },
+        error : (error)=>{
+          console.log(error);
+        }
+      }
+    )
   }
 }

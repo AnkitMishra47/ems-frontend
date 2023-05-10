@@ -82,6 +82,7 @@ export class EmployeeListComponent implements OnInit {
       { field: 'name', header: 'Name', width: '5%' },
       { field: 'email', header: 'Email', width: '5%' },
       { field: 'mobile', header: 'Mobile', width: '5%' },
+      { field: 'gender.description', header: 'Gender', width: '5%' },
       { field: '', header: '', width: '2%' },
       { field: '', header: '', width: '2%' }
     ];

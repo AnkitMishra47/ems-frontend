@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
   <p-toast></p-toast>
   <div class="ui-g form-group">
     <div class="heading">Search Employees</div>
@@ -26,6 +26,7 @@
             <td>{{employee.name}}</td>
             <td style="word-break: break-all;">{{employee.email}}</td>
             <td>{{employee.mobile}}</td>
+            <td>{{employee.gender?.description}}</td>
             <td>
               <p-button label="" icon="pi pi-pencil" styleClass="p-button-sm" iconPos="right" (click)="onEditClick(employee)"></p-button>
             </td>

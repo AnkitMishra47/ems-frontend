@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TableModule } from 'primeng/table';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -37,6 +38,7 @@ import { EmployeeListComponent } from './search-employee/employee-list.component
     ToastModule,
     ProgressSpinnerModule,
     ToolbarModule,
+    DropdownModule
 
   ],
   providers: [MessageService , ConfirmationService],

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { HostListener, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MessageService} from 'primeng/api';
 import { environment } from 'src/environments/environment';
@@ -42,5 +42,11 @@ export class UtilsService {
     let message = error?.error?.message;
     let detailMessage = message?.length > 0 ? message : 'Error Occured';
     this.msgsService.add({ severity: 'error', summary: 'Error', detail: detailMessage });
+  }
+
+  addNullOptions(data : any[]){
+    let nullOption = {value : null , description : 'Please Select'};
+    data.unshift(nullOption);
+    return data;
   }
 }

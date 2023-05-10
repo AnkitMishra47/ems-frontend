@@ -9,7 +9,7 @@
         </div>
     </p-toolbar>
 
-    <div *ngIf="showData" class="home-section flex justify-content-center">
+    <div *ngIf="showData" class="home-section justify-content-center">
     <p-toast></p-toast>
         <p-card [header]="header" [subheader]="subHeader">
             <ng-template pTemplate="header"></ng-template>
@@ -27,9 +27,14 @@
                     <div class="form-group col-md-6">
                         <label >Mobile*</label>
                         <input [disabled]="!isScreenEditable" class="form-control" pInputText type="text" required  id="mobile" [(ngModel)]="employee.mobile" required name="mobile">
+                    </div> 
+                    <div class="form-group col-md-6">
+                        <label >Gender</label>
+                        <p-dropdown class="flex" name="gender" [options]="genders" [disabled]="!isScreenEditable" optionLabel="description" [(ngModel)]="employee.gender"></p-dropdown>
                     </div>
                 </div>
         </p-card>
     </div>
     <p-progressSpinner *ngIf="showLoader" ></p-progressSpinner>
 </form>
+

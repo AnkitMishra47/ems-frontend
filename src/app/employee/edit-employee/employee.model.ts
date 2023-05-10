@@ -4,6 +4,7 @@ export class Employee{
     email:string;
     mobile:string;
     IsNewObject : boolean;
+    gender : any;
 
     constructor(){
         this.IsNewObject = true;
