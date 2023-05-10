@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+
+p-progressSpinner{
+    bottom: calc(100vh/2);
+    right: calc(100vw/2);
+    position: fixed !important;
+}

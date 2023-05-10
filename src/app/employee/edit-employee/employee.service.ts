@@ -9,8 +9,8 @@ export class EmployeeService {
 
   constructor(private utilsService : UtilsService) { }
 
-  getEmployees() : Observable<any>{
-    return this.utilsService.getObjects("employees");
+  getEmployees(queryParams : any) : Observable<any>{
+    return this.utilsService.getObjects("search-employees" , queryParams);
   }
 
   getEmployeesByID(id : any) : Observable<any>{

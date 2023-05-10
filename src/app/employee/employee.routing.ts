@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { EmployeeComponent } from './edit-employee/employee.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeListComponent } from './search-employee/employee-list.component';
 
 export const employeeRoutes: Routes = [
     {

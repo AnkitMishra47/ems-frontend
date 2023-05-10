@@ -4,6 +4,7 @@ import { EmployeeService } from '../edit-employee/employee.service';
 import { UtilsService } from 'src/utils/utils.service';
 import { ConfirmationService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { SearchEmployee } from './employee-list.model';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class EmployeeListComponent implements OnInit {
   employees : Employee[];
   employeeColumns : any[];
   showMessages = false;
+  searchEmployee : SearchEmployee;
+  showLoader = false;
   
 
   constructor(private employeeService : EmployeeService , 
@@ -26,17 +29,25 @@ export class EmployeeListComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit(): void {
+    this.searchEmployee = new SearchEmployee();
     this.getColoumns();
     this.getEmployees();
   }
 
+  onSearchClick(){
+    this.getEmployees();      
+  }
+
   getEmployees() {
-    this.employeeService.getEmployees().subscribe({
+    this.showLoader = true;
+    this.employeeService.getEmployees(this.searchEmployee).subscribe({
       next: (data) => {
         this.employees = data;
+        this.showLoader = false;
       },
       error: (error) => {
-        console.log(error);
+        this.utilsService.handleErrorMessage(error);
+        this.showLoader = false;
       }})
   }
 

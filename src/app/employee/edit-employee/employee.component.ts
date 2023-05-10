@@ -15,9 +15,11 @@ import { ADD_EMPLOYEE, ADD_EMPLOYEE_SUBHEADER, EDIT_EMPLOYEE, EDIT_EMPLOYEE_SUBH
 export class EmployeeComponent implements OnInit {
   
   employee: Employee = new Employee();
-  header   = ADD_EMPLOYEE;
-  subHeader = ADD_EMPLOYEE_SUBHEADER;
+  header : string  = ADD_EMPLOYEE;
+  subHeader : string = ADD_EMPLOYEE_SUBHEADER;
   isScreenEditable = true;
+  showLoader = false;
+  showData=false;
   @ViewChild('myForm') myForm : NgForm;
 
   constructor(private employeeService : EmployeeService,
@@ -27,16 +29,25 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     // do nothing
+    this.showLoader = true;
     this.route.params.subscribe(
       (params) => {
         if(params['id'] && params['id'] !== '0'){
           this.getEmployeeByID(params['id']);
         }
         else{
-
+          this.createNewEmployee()
+          this.showLoader = false;
+          this.showData = true;
         }
       }
     )
+  }
+
+  createNewEmployee(){
+    this.employee = new Employee();
+    this.header = ADD_EMPLOYEE;
+    this.subHeader  = ADD_EMPLOYEE_SUBHEADER;
   }
 
   onCancelClick(){
@@ -49,21 +60,24 @@ export class EmployeeComponent implements OnInit {
         next : (data) => {
           this.employee = data;
           this.postEmployeeByIDSuccess(data);
+          this.showData = true;
+          this.showLoader = false;
         },
         error : (error) => {
           console.log(error);
           
           this.utilsService.handleErrorMessage(error);
+          this.showLoader = false;
         }
       }
     )
   }
 
   postEmployeeByIDSuccess(data : any){
-      this.header = EDIT_EMPLOYEE;
-      this.subHeader = EDIT_EMPLOYEE_SUBHEADER;
-      this.employee.IsNewObject = false;
-      this.isScreenEditable = false;
+    this.header = EDIT_EMPLOYEE;
+    this.subHeader = EDIT_EMPLOYEE_SUBHEADER;
+    this.employee.IsNewObject = false;
+    this.isScreenEditable = false;
   }
 
   onEditClick(){
@@ -71,9 +85,11 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSaveClick(){
+    this.showLoader = true;
       this.employeeService.saveEmployee(this.employee).subscribe(
         {
           next : (data) => {
+            this.showLoader = false;
             this.utilsService.handleSuccessMessage();
 
             setTimeout(()=>{
@@ -83,6 +99,7 @@ export class EmployeeComponent implements OnInit {
           },
           error : (error) => {
             this.utilsService.handleErrorMessage(error);
+            this.showLoader = false;
           }
         })
   }

@@ -1,35 +1,35 @@
 <form #myForm="ngForm">
-    <p-toolbar>
+    <p-toolbar class="toolbar">
         <div class="p-toolbar-group-start">
-            <p-button *ngIf="!employee.IsNewObject" label="Edit" icon="pi pi-pencil" (click)="onEditClick()"  class="mr-2"></p-button>
+            <p-button *ngIf="!employee.IsNewObject" label="Edit" icon="pi pi-pencil" (click)="onEditClick()"  styleClass="p-button-sm"></p-button>
         </div>
         <div class="p-toolbar-group-end">
-            <p-button icon="pi pi-times" label="Cancel" styleClass="p-button-danger mr-2" (click)="onCancelClick()"></p-button>
-            <p-button [disabled]="!isScreenEditable" icon="pi pi-save" label="Save" styleClass="p-button-success mr-2" (onClick)="onSaveClick()"></p-button>
+            <p-button icon="pi pi-times" label="Cancel" styleClass="p-button-danger p-button-sm mr-2" (click)="onCancelClick()"></p-button>
+            <p-button [disabled]="!isScreenEditable" icon="pi pi-save" label="Save" styleClass="p-button-success p-button-sm" (onClick)="onSaveClick()"></p-button>
         </div>
     </p-toolbar>
 
-    <div class="home-section flex justify-content-center">
+    <div *ngIf="showData" class="home-section flex justify-content-center">
     <p-toast></p-toast>
-        <p-card [header]="header" [subheader]="subHeader" [style]="{width: '300px' ,margin: 'auto', fontsize : '12px'}">
-            <ng-template pTemplate="header">
-            </ng-template>
-                <div class="ui-g form-group">
-                    <div class="ui-g-6 ui-lg-6">
-                        <label>Name*</label>
-                        <input [disabled]="!isScreenEditable" type="text" class="form-control" id="name" [(ngModel)]="employee.name" required name="name">
+        <p-card [header]="header" [subheader]="subHeader">
+            <ng-template pTemplate="header"></ng-template>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label >Name*</label>
+                        <input pInputText id="username" class="form-control" [disabled]="!isScreenEditable" [(ngModel)]="employee.name" required name="name"/>
                     </div>
-
-                    <div class="ui-g-6 ui-lg-6">
+                    <div class="form-group col-md-6">
                         <label>Email*</label>
-                        <input [disabled]="!isScreenEditable" type="email" class="form-control" id="email" [(ngModel)]="employee.email" required name="email">
+                        <input [disabled]="!isScreenEditable" class="form-control" pInputText type="email"  id="email" [(ngModel)]="employee.email" required name="email">
                     </div>
-                </div> 
-            
-                <div class="ui-g form-group">
-                    <label>Mobile*</label>
-                    <input [disabled]="!isScreenEditable" type="text" required class="form-control" id="mobile" [(ngModel)]="employee.mobile" required name="mobile">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label >Mobile*</label>
+                        <input [disabled]="!isScreenEditable" class="form-control" pInputText type="text" required  id="mobile" [(ngModel)]="employee.mobile" required name="mobile">
+                    </div>
                 </div>
         </p-card>
     </div>
+    <p-progressSpinner *ngIf="showLoader" ></p-progressSpinner>
 </form>

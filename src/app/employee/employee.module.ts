@@ -9,13 +9,14 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 import { FormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { AppComponent } from '../app.component';
 import { EmployeeComponent } from './edit-employee/employee.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeListComponent } from './search-employee/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     ButtonModule,
     ConfirmDialogModule,
     ToastModule,
+    ProgressSpinnerModule,
     ToolbarModule,
 
   ],

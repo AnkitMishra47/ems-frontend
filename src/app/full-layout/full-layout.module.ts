@@ -7,7 +7,6 @@ import { MegaMenuModule } from 'primeng/megamenu';
 
 import { FormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
@@ -24,6 +23,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MegaMenuModule,
   ],
   providers: [MessageService , ConfirmationService],
-  bootstrap: [HomeComponent]
+  bootstrap: [SidebarComponent]
 })
 export class FullLayoutModule { }

@@ -15,8 +15,8 @@ export class UtilsService {
   constructor(private httpClient : HttpClient, 
               private msgsService : MessageService) {}
 
-  getObjects(serviceName:string) : Observable<any>{
-    return this.httpClient.get(this.apiURL + serviceName);
+  getObjects(serviceName:string , queryParams : any) : Observable<any>{
+    return this.httpClient.post(this.apiURL + serviceName , queryParams);
   }
 
   getObjectByID(serviceName : string , id : any){
@@ -37,6 +37,8 @@ export class UtilsService {
   }
 
   handleErrorMessage(error : any = null){
+    console.log(error);
+
     let message = error?.error?.message;
     let detailMessage = message?.length > 0 ? message : 'Error Occured';
     this.msgsService.add({ severity: 'error', summary: 'Error', detail: detailMessage });

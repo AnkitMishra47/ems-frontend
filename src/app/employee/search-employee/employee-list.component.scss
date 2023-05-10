@@ -1,0 +1,52 @@
+.message{
+    width: fit-content;
+    position: absolute;
+    right: 0px;
+    margin: 12px;
+    top: 0px;
+    font-style: italic;
+}
+td, th{
+    text-align: center;
+}
+
+@media(max-width: 767px) {
+    td,
+    th {
+        font-size: 10px;
+    }
+
+    .table-container {
+        max-width: 100%;
+    }
+
+    ::ng-deep p-button{
+        .p-button.p-button-sm {
+            padding: 0.25rem 1.09375rem !important; 
+        }
+        .p-button.p-button-icon-only {
+            width: 1.5rem;
+            padding-bottom: 0.5rem;
+            height: 1.75rem;
+        }
+    }
+}
+
+  @media (min-width: 768px) {
+    .p-datatable {
+      font-size: 14px; /* increase font size on larger screens */
+    }
+  }
+
+  .heading{
+    font-size: 20px ;
+    font-weight: bold;
+  }
+ 
+  
+  
+  
+  
+  
+  
+  

@@ -65,7 +65,7 @@ export class SidebarComponent implements OnInit{
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
-    if (screenWidth >= 768 && screenHeight >= 768) {
+    if (screenWidth >= 768) {
       this.isDesktop = true;
     } else {
       this.isDesktop = false;
