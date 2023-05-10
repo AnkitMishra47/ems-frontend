@@ -38,6 +38,9 @@ export class UtilsService {
 
   handleErrorMessage(error : any = null){
     let message ; 
+
+    console.log(error);
+
     if(error instanceof HttpErrorResponse){
        message = error?.error;
     }
