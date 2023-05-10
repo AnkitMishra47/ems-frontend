@@ -59,3 +59,8 @@ img{
     flex: 5;
     margin: 12px 12px 0px 12px;
 }
+
+::ng-deep .p-toast {
+    position: static !important; 
+    width: 100% !important;
+}

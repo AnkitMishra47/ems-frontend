@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MessageService} from 'primeng/api';
@@ -37,9 +37,11 @@ export class UtilsService {
   }
 
   handleErrorMessage(error : any = null){
-    console.log(error);
+    let message ; 
+    if(error instanceof HttpErrorResponse){
+       message = error?.error;
+    }
 
-    let message = error?.error?.message;
     let detailMessage = message?.length > 0 ? message : 'Error Occured';
     this.msgsService.add({ severity: 'error', summary: 'Error', detail: detailMessage });
   }
