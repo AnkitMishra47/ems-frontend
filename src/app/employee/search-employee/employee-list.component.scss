@@ -10,6 +10,12 @@ td, th{
     text-align: center;
 }
 
+.button-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+}
+
 @media(max-width: 767px) {
     td,
     th {

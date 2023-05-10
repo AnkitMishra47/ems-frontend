@@ -4,12 +4,13 @@
     <div class="heading">Search Employees</div>
   </div>
   <div class="form-group row">
-    <div class="col-lg-9 col-md-9 col-sm-9">
+    <div class="col-md-8">
         <label>Details</label>
         <input placeholder="Enter your Name, Email, Phone" type="text" class="form-control" id="Details" [(ngModel)]="searchEmployee.details" required name="Details">
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-3 text-center">
-      <p-button icon="pi pi-search" label="Search" styleClass="mt-4" (onClick)="onSearchClick()"></p-button>
+    <div class="col-md-4 button-container mt-4">
+      <p-button label="Clear" (onClick)="onClearClick()" icon="pi pi-times-circle" styleClass="p-button-outlined p-button-danger p-button-sm"></p-button>
+      <p-button icon="pi pi-search" label="Search" styleClass="p-button-sm" (onClick)="onSearchClick()"></p-button>
     </div>
   </div> 
   <div class="table-container">

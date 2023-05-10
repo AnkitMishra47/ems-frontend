@@ -16,7 +16,7 @@ import { SearchEmployee } from './employee-list.model';
 
 export class EmployeeListComponent implements OnInit {
  
-  employees : Employee[];
+  employees : any[];
   employeeColumns : any[];
   showMessages = false;
   searchEmployee : SearchEmployee;
@@ -75,6 +75,11 @@ export class EmployeeListComponent implements OnInit {
 
       }
     });
+  }
+
+  onClearClick(){
+    this.searchEmployee = new SearchEmployee();
+    this.employees = [];
   }
 
   getColoumns(){
