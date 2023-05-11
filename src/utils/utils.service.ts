@@ -36,13 +36,13 @@ export class UtilsService {
     this.msgsService.add({ severity: 'success', detail: detailMessage });
   }
 
-  handleErrorMessage(error : any = null){
+  handleErrorMessage(response : any = null){
     let message ; 
 
-    console.log(error);
+    console.log(response);
 
-    if(error instanceof HttpErrorResponse){
-       message = error?.error;
+    if(response instanceof HttpErrorResponse){
+       message = response?.error.error;
     }
 
     let detailMessage = message?.length > 0 ? message : 'Error Occured';
