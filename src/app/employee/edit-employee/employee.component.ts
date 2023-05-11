@@ -45,8 +45,6 @@ export class EmployeeComponent implements OnInit {
         }
         else{
           this.createNewEmployee()
-          this.showLoader = false;
-          this.showData = true;
         }
       }
     )
@@ -56,6 +54,9 @@ export class EmployeeComponent implements OnInit {
     this.employee = new Employee();
     this.header = ADD_EMPLOYEE;
     this.subHeader  = ADD_EMPLOYEE_SUBHEADER;
+    this.showLoader = false;
+    this.showData = true;
+    this.isScreenEditable = true;
   }
 
   onCancelClick(){
