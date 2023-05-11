@@ -21,6 +21,9 @@ export class EmployeeListComponent implements OnInit {
   showMessages = false;
   searchEmployee : SearchEmployee;
   showLoader = false;
+  tableSelectionMode = 'single';
+  filterValues: string[] = ['', '', '', ''];
+
   
 
   constructor(private employeeService : EmployeeService , 
@@ -55,6 +58,10 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['edit-employee' , rowData.id]);
   }
 
+  onEmployeeTableRowSelect(rowData : any){
+    this.onEditClick(rowData);
+  }
+
   onDeleteClick(employee: Employee) {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to proceed?',
@@ -64,6 +71,7 @@ export class EmployeeListComponent implements OnInit {
         this.employeeService.deleteEmployee(employee).subscribe(
           {
             next: (data) => {
+              window.scrollTo({top : 0 , behavior : 'smooth'});
               this.utilsService.handleSuccessMessage("Employee Deleted Successfully");
               this.getEmployees();
             }
@@ -84,14 +92,20 @@ export class EmployeeListComponent implements OnInit {
 
   getColoumns(){
     this.employeeColumns = [
-      { field: 'name', header: 'Name', width: '5%' },
-      { field: 'email', header: 'Email', width: '5%' },
-      { field: 'mobile', header: 'Mobile', width: '5%' },
-      { field: 'gender.description', header: 'Gender', width: '5%' },
-      { field: '', header: '', width: '2%' },
-      { field: '', header: '', width: '2%' }
+      { field: 'name', header: 'Name', width: '25%' , noSort: false , noFilter : false },
+      { field: 'email', header: 'Email', width: '30%', noSort: false , noFilter : false },
+      { field: 'mobile', header: 'Mobile', width: '20%', noSort: false , noFilter : false },
+      { field: 'gender.description', header: 'Gender', width: '15%', noSort: false , noFilter : false },
+      { field: '', header: '', width: '10%', noSort: true , noFilter : true },
     ];
   }
 
+  getFilterValue(filter: any | any[]): string {
+    if (Array.isArray(filter)) {
+      return filter[0].value;
+    } else {
+      return filter?.value || '';
+    }
+  }
 }
 

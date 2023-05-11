@@ -36,7 +36,7 @@ import { EmployeeListComponent } from './search-employee/employee-list.component
     ConfirmDialogModule,
     ProgressSpinnerModule,
     ToolbarModule,
-    DropdownModule
+    DropdownModule,
 
   ],
   providers: [MessageService , ConfirmationService],

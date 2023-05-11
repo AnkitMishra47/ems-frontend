@@ -13,23 +13,34 @@
     </div>
   </div> 
   <div class="table-container">
-    <p-table [value]="employees">
+    <p-table #employeeTable [value]="employees" [selectionMode]="tableSelectionMode" (onRowSelect)="onEmployeeTableRowSelect($event.data)">
+      <ng-template pTemplate="colgroup">
+        <colgroup>
+          <col *ngFor="let col of employeeColumns" [style.width]="col.width"> 
+        </colgroup>
+      </ng-template>
       <ng-template pTemplate="header">
           <tr>
-            <th *ngFor="let col of employeeColumns" [ngStyle]="{'width': col.width}">
+            <th *ngFor="let col of employeeColumns" [pSortableColumn]="col.field">
               {{col.header}}
+              <p-sortIcon [field]="col.field" *ngIf="!col.noSort"></p-sortIcon>
+            </th>
+          </tr>
+          <tr>
+            <th *ngFor="let col of employeeColumns; let i=index">
+              <input *ngIf="!col.noFilter" pInputText type="text" [(ngModel)]="filterValues[i]" (input)="employeeTable.filter(filterValues[i], col.field , 'contains')" >
             </th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-employee>
-          <tr>
+          <tr [pSelectableRow]="employee">
             <td>{{employee.name}}</td>
-            <td style="word-break: break-all;">{{employee.email}}</td>
+            <td style="word-break: break-all;" >{{employee.email}}</td>
             <td>{{employee.mobile}}</td>
             <td>{{employee.gender?.description}}</td>
-            <td>
+            <!-- <td>
               <p-button label="" icon="pi pi-pencil" styleClass="p-button-sm" iconPos="right" (click)="onEditClick(employee)"></p-button>
-            </td>
+            </td> -->
             <td>
               <p-button label="" styleClass="p-button-danger p-button-sm" icon="pi pi-trash" (click)="onDeleteClick(employee)" iconPos="right"></p-button>
             </td>

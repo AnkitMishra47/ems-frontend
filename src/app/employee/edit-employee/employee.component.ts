@@ -97,19 +97,21 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.saveEmployee(this.employee).subscribe(
         {
           next : (data) => {
-            this.showLoader = false;
             this.utilsService.handleSuccessMessage();
+            this.postSave();
 
-            setTimeout(()=>{
-              this.myForm.reset();
-              this.router.navigate(['employees-list']);
-            }, 1500);
           },
           error : (error) => {
             this.utilsService.handleErrorMessage(error);
             this.showLoader = false;
           }
         })
+  }
+
+  postSave(){
+    this.showLoader = false;
+    this.myForm.reset();
+    this.router.navigate(['employees-list']);
   }
 
   getGenderOptions(){

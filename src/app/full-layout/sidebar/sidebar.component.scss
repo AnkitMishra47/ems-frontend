@@ -16,8 +16,9 @@
     flex: 5;
 }
 
+
 .header{
-    background-color: #f8f9fa;
+    background-color:var(--light-theme-color);
     height: 58px;
     border: 1px solid rgba(0, 0, 0, 0.125);
     align-items: center;
