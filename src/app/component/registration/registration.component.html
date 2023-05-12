@@ -1,0 +1,37 @@
+<div class="container center full-height">
+    <form #myForm="ngForm">
+        <div class="justify-content-center">
+            <p-card header="Registration" subheader="Please enter below details to register">
+                <ng-template pTemplate="header"></ng-template>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>First Name*</label>
+                        <input class="form-control" pInputText="pInputText" type="text" id="firstname"
+                            [(ngModel)]="firstname" required="required" name="firstname">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Last Name*</label>
+                        <input pInputText="pInputText" id="lastname" class="form-control" [(ngModel)]="lastname"
+                            required="required" name="lastname" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Username*</label>
+                        <input class="form-control" pInputText="pInputText" type="text" required="required"
+                            id="username" [(ngModel)]="username" required="required" name="username">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Password*</label>
+                        <input class="form-control" pInputText="pInputText" type="text" required="required"
+                            id="password" [(ngModel)]="password" required="required" name="password">
+                    </div>
+                </div>
+                <div class="form-row center mt-4">
+                    <p-button icon="pi pi-sign-in" iconPos="right" label="Sign in" styleClass="p-button-sm"></p-button>
+                </div>
+            </p-card>
+        </div>
+        <p-progressSpinner *ngIf="showLoader"></p-progressSpinner>
+    </form>
+</div>

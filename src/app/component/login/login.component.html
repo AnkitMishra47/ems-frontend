@@ -1,0 +1,26 @@
+<div class="container center full-height">
+    <form #myForm="ngForm">
+        <div class="home-section justify-content-center">
+            <p-card header="Login Form" subheader="Please enter you login details">
+                <ng-template pTemplate="header"></ng-template>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Username*</label>
+                            <input pInputText="pInputText" id="username" class="form-control" [(ngModel)]="username" required="required" name="username"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Password*</label>
+                            <input class="form-control" pInputText="pInputText" type="password" required="required" id="mobile" [(ngModel)]="password" required="required" name="password">
+                        </div>
+                    </div>
+
+                    <div class="form-row center mt-4">
+                        <p-button icon="pi pi-sign-in" iconPos="right" label="Login" styleClass="p-button-sm"></p-button>
+                    </div>
+                </p-card>
+            </div>
+        </form>
+        <p-progressSpinner *ngIf="showLoader"></p-progressSpinner>
+    </div>

@@ -11,11 +11,18 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { EmployeeModule } from './employee/employee.module';
 import { FullLayoutModule } from './full-layout/full-layout.module';
 import { HomeComponent } from './component/home/home.component';
+import { RegistrationComponent } from './component/registration/registration.component';
+import { LoginComponent } from './component/login/login.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    RegistrationComponent,
+    LoginComponent,
+    NotFoundComponent,
   ],
   imports: [
     FormsModule,
@@ -26,7 +33,7 @@ import { HomeComponent } from './component/home/home.component';
     BrowserAnimationsModule,
     CardModule,
     EmployeeModule,
-    FullLayoutModule
+    FullLayoutModule,
   ],
   providers: [MessageService , ConfirmationService],
   bootstrap: [AppComponent]

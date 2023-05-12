@@ -39,6 +39,17 @@ import { EmployeeListComponent } from './search-employee/employee-list.component
     DropdownModule,
 
   ],
+  exports:[
+    TableModule,
+    BrowserAnimationsModule,
+    CardModule,
+    InputTextModule,
+    ButtonModule,
+    ConfirmDialogModule,
+    ProgressSpinnerModule,
+    ToolbarModule,
+    DropdownModule,
+  ],
   providers: [MessageService , ConfirmationService],
   bootstrap: [AppComponent]
 })
