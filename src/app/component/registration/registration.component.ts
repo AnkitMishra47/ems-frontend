@@ -23,8 +23,8 @@ export class RegistrationComponent {
     let userObj = {
       username : this.username,
       password : this.password,
-      firstname : this.firstname,
-      lastname : this.lastname
+      firstName : this.firstname,
+      lastName : this.lastname
     }
     this.utilsService.saveObjects("register", userObj).subscribe(
       {
@@ -32,6 +32,8 @@ export class RegistrationComponent {
           this.utilsService.handleSuccessMessage("Registration Successfull");
         },
         error : (er) => {
+          console.log("error called");
+          
           this.utilsService.handleErrorMessage(er);
         }
       }
