@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/utils/auth.service';
+import { UtilsService } from 'src/utils/utils.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss'],
+  encapsulation : ViewEncapsulation.Emulated
 })
 export class LoginComponent {
   username: string;
@@ -12,12 +16,36 @@ export class LoginComponent {
   submitted = false;
   showLoader = false;
 
-  onSubmit() {
+  constructor(private utilsService : UtilsService , 
+              private router : Router , 
+              private authService : AuthService){}
+
+  onLoginClick() {
+    this.showLoader = true;
+
     this.submitted = true;
-    if (this.username === 'user' && this.password === 'pass') {
-      console.log('Login successful');
-    } else {
-      console.log('Invalid credentials');
+
+    const loginObj = {
+      username : this.username,
+      password  : this.password
     }
+
+    this.authService.login(loginObj).subscribe(
+      {
+        next: (data)=>{
+          this.utilsService.handleSuccessMessage("Login Successfull");
+
+          setTimeout(()=>{
+            this.router.navigate(['home']);
+          }, 1000)
+
+          this.showLoader = false;
+        },
+        error : (er) => {
+          this.utilsService.handleErrorMessage(er);
+          this.showLoader = false;
+        }
+      }
+    )
   }
 }

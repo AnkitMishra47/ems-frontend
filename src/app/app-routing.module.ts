@@ -7,6 +7,7 @@ import { NotFoundComponent } from './component/not-found/not-found.component';
 import { LoginComponent } from './component/login/login.component';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { AuthGuard } from 'src/utils/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,10 +18,13 @@ const routes: Routes = [
   {
     path : '',
     component : SidebarComponent,
+    canActivate : [AuthGuard],
     children : [
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate : [AuthGuard],
+
       },
       ...employeeRoutes
     ]

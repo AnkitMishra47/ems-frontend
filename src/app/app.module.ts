@@ -15,6 +15,7 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { LoginComponent } from './component/login/login.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AuthGuardService } from 'src/utils/auth.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     EmployeeModule,
     FullLayoutModule,
   ],
-  providers: [MessageService , ConfirmationService],
+  providers: [MessageService , ConfirmationService , AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
