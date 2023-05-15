@@ -1,6 +1,8 @@
 // sidebar.component.ts
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { MegaMenuItem } from 'primeng/api';
+import { AuthService } from 'src/utils/auth.service';
+import { UtilsService } from 'src/utils/utils.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,10 +16,12 @@ export class SidebarComponent implements OnInit{
 
   isDesktop = false;
 
-  constructor(){}
+  constructor(private authService : AuthService){}
 
   ngOnInit() {
 
+    console.log(this.authService.getUser());
+    
     this.checkScreenSize();
 
     this.items = [

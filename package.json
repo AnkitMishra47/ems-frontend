@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@auth0/angular-jwt": "^5.1.2",
+    "angular-jwt": "^0.1.11",
     "bootstrap": "4.6",
     "primeicons": "^6.0.1",
     "primeng": "^16.0.0-rc.1",

@@ -16,6 +16,8 @@ import { LoginComponent } from './component/login/login.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AuthGuardService } from 'src/utils/auth.guard';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { AuthGuardService } from 'src/utils/auth.guard';
     RegistrationComponent,
     LoginComponent,
     NotFoundComponent,
+    ProfileComponent,
   ],
   imports: [
     FormsModule,
@@ -35,8 +38,13 @@ import { AuthGuardService } from 'src/utils/auth.guard';
     CardModule,
     EmployeeModule,
     FullLayoutModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter:  () => localStorage.getItem('token')
+      }
+    })
   ],
-  providers: [MessageService , ConfirmationService , AuthGuardService],
+  providers: [MessageService , ConfirmationService , AuthGuardService , JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

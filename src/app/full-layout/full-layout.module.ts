@@ -10,6 +10,7 @@ import { PasswordModule } from 'primeng/password';
 import { FormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   exports:[
     ToastModule,
-    PasswordModule
+    PasswordModule,
   ],
-  providers: [MessageService , ConfirmationService],
+  providers: [MessageService , ConfirmationService , JwtHelperService],
   bootstrap: [SidebarComponent]
+
 })
 export class FullLayoutModule { }

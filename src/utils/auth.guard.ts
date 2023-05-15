@@ -22,6 +22,8 @@ export class AuthGuardService {
                 (data) => {
 
                     if (this.utilsService.isSuccessfulResponse(data)) {
+
+                        this.utilsService.setLoggedInUser(data.user);
                         return true;
                     }
                     else{

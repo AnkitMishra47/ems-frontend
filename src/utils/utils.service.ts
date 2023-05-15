@@ -10,12 +10,16 @@ import { AuthService } from './auth.service';
 })
 export class UtilsService {
   private apiURL = environment.apiUrl;
+  public loggedInUserObj: any;
   isDesktop = false;
   isMobile = false;
 
   constructor(private httpClient : HttpClient, 
               private msgsService : MessageService,
-              private authService : AuthService) {}
+              private authService : AuthService,)
+              {
+                
+              }
 
   getObjects(serviceName:string , queryParams : any , ) : Observable<any>{
     return this.httpClient.post(this.apiURL + serviceName , queryParams , { headers: this.authService.addTokenToHeader() });
@@ -71,5 +75,9 @@ export class UtilsService {
 
   getRequest(serviceName : any) : Observable<any>{
     return this.httpClient.get(this.apiURL + serviceName , { headers: this.authService.addTokenToHeader()});
+  }
+
+  setLoggedInUser(userObj : any){
+    this.loggedInUserObj = userObj;
   }
 }

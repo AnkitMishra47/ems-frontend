@@ -37,7 +37,7 @@ export class LoginComponent {
 
           setTimeout(()=>{
             this.router.navigate(['home']);
-          }, 1000)
+          }, 1200);
 
           this.showLoader = false;
         },
