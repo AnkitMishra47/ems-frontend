@@ -11,19 +11,16 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { EmployeeModule } from './employee/employee.module';
 import { FullLayoutModule } from './full-layout/full-layout.module';
 import { HomeComponent } from './component/home/home.component';
-import { RegistrationComponent } from './component/registration/registration.component';
-import { LoginComponent } from './component/login/login.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { AuthGuardService } from 'src/utils/auth.guard';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { ProfileComponent } from './component/profile/profile.component';
+import { LayoutModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RegistrationComponent,
-    LoginComponent,
     NotFoundComponent,
     ProfileComponent,
   ],
@@ -37,6 +34,7 @@ import { ProfileComponent } from './component/profile/profile.component';
     CardModule,
     EmployeeModule,
     FullLayoutModule,
+    LayoutModule,
     JwtModule.forRoot({
       config: {
         tokenGetter:  () => localStorage.getItem('token')

@@ -4,11 +4,11 @@ import { employeeRoutes } from './employee/employee.routing';
 import { SidebarComponent } from './full-layout/sidebar/sidebar.component';
 import { HomeComponent } from './component/home/home.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
-import { LoginComponent } from './component/login/login.component';
-import { AppComponent } from './app.component';
-import { RegistrationComponent } from './component/registration/registration.component';
 import { AuthGuard } from 'src/utils/auth.guard';
 import { ProfileComponent } from './component/profile/profile.component';
+import { LayoutComponent } from './auth/layout/layout.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
 
 const routes: Routes = [
   {
@@ -38,7 +38,7 @@ const routes: Routes = [
   },
   {
     path : '',
-    component : AppComponent,
+    component : LayoutComponent,
     children : [
       {
         path: 'not-found',

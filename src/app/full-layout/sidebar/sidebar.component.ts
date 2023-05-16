@@ -1,9 +1,7 @@
 // sidebar.component.ts
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { MegaMenuItem } from 'primeng/api';
 import { AuthService } from 'src/utils/auth.service';
-import { UtilsService } from 'src/utils/utils.service';
 
 @Component({
   selector: 'app-sidebar',
