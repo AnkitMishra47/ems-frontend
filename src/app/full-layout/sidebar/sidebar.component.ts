@@ -1,5 +1,6 @@
 // sidebar.component.ts
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MegaMenuItem } from 'primeng/api';
 import { AuthService } from 'src/utils/auth.service';
 import { UtilsService } from 'src/utils/utils.service';
@@ -31,6 +32,11 @@ export class SidebarComponent implements OnInit{
         routerLink: '/home'
       },
       {
+        label: 'Profile',
+        icon: 'pi pi-user',
+        routerLink: '/profile'
+      },
+      {
         label : 'Employee',
         icon: 'pi pi-users',
         items : [
@@ -38,7 +44,13 @@ export class SidebarComponent implements OnInit{
             this.getEmployeeMenuItem()
           ]
         ]
-      }
+      },
+      {
+        label: 'Logout',
+        icon: 'pi pi-fw pi-power-off',
+        command : this.onLogoutClick,
+        routerLink : '/login'
+      },
     ];
 
     this.verticalItems = [
@@ -57,11 +69,32 @@ export class SidebarComponent implements OnInit{
               ]
 
             },
-            this.getEmployeeMenuItem()
+            this.getEmployeeMenuItem(),
+            {
+              label: 'User Settings',
+              items : [
+                {
+                  label : 'Logout',
+                  icon: 'pi pi-fw pi-power-off',
+                  command : this.onLogoutClick,
+                  routerLink : '/login'
+                },
+                {
+                  label: 'Profile',
+                  icon: 'pi pi-user',
+                  routerLink: '/profile'
+                },
+              ]
+            },
           ]
         ]
       }
     ]
+  }
+
+  private onLogoutClick = () => {
+    this.authService.logout();
+    console.log("isLogout called");
   }
 
   @HostListener('window:resize', ['$event'])

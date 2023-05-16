@@ -28,6 +28,10 @@ export class AuthService {
             );
     }
 
+    setToken(obj : any){
+        localStorage.setItem('token', obj);
+    }
+
     logout(): void {
         this.token = null;
         localStorage.removeItem('token');

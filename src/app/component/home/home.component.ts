@@ -12,7 +12,10 @@ export class HomeComponent implements OnInit {
   
   title = TITLE;
 
-  constructor(private utilsService : UtilsService){}
+  constructor(private utilsService : UtilsService)
+  {
+    
+  }
 
   ngOnInit(): void {
     console.log(this.utilsService.loggedInUserObj);

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   exports:[
     ToastModule,
     PasswordModule,
+    ProgressSpinnerModule
   ],
   providers: [MessageService , ConfirmationService , JwtHelperService],
   bootstrap: [SidebarComponent]
