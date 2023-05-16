@@ -31,9 +31,8 @@ export class LoginComponent {
     }
 
     this.authService.login(loginObj).subscribe(
-      {
-        next: (data)=>{
-          this.utilsService.handleSuccessMessage("Login Successfull");
+        (data)=>{
+          this.authService.handleSuccessMessage("Login Successfull");
 
           setTimeout(()=>{
             this.router.navigate(['home']);
@@ -41,11 +40,10 @@ export class LoginComponent {
 
           this.showLoader = false;
         },
-        error : (er) => {
-          this.utilsService.handleErrorMessage(er);
+        (er) => {
+          this.authService.handleErrorMessage(er);
           this.showLoader = false;
         }
-      }
     )
   }
 }

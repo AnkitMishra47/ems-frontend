@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
     baseURL = environment.apiUrl;
 
     constructor(private http: HttpClient , 
-                private jwtHelper : JwtHelperService) { }
+                private jwtHelper : JwtHelperService , 
+                private msgsService : MessageService) { }
 
     login(loginObj : any): Observable<any> {
        
@@ -28,14 +30,33 @@ export class AuthService {
             );
     }
 
-    setToken(obj : any){
-        localStorage.setItem('token', obj);
-    }
-
     logout(): void {
         this.token = null;
         localStorage.removeItem('token');
     }
+
+    handleSuccessMessage(message : any = null){
+        let detailMessage = message?.length > 0 ? message : 'Details Saved Successfully';
+        this.msgsService.add({ severity: 'success', detail: detailMessage });
+      }
+    
+      handleErrorMessage(response : any = null , errorMessage : any = null){
+        let message ; 
+        
+        if(response instanceof HttpErrorResponse){
+           message = response?.error.error;
+        }
+    
+        if(errorMessage){
+          message = errorMessage;
+        }
+    
+        let detailMessage = message?.length > 0 ? message : 'Error Occured';
+    
+        console.log(this.msgsService);
+    
+        this.msgsService.add({ severity: 'error', summary: 'Error', detail: detailMessage });
+      }
 
     getToken(): string {
         if (!this.token) {

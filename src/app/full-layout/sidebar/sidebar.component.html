@@ -9,7 +9,7 @@
         </div>
         <div  class="router-container">
             <div>
-                <p-toast ></p-toast>
+                <p-toast *ngIf="isSideBarComponent" ></p-toast>
             </div>
             <router-outlet></router-outlet>
         </div>

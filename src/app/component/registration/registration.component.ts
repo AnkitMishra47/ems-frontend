@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AuthService } from 'src/utils/auth.service';
 import { UtilsService } from 'src/utils/utils.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class RegistrationComponent {
   submitted = false;
   showLoader = false;
 
-  constructor( private utilsService  :UtilsService){}
+  constructor( private utilsService  :UtilsService , 
+              private authService : AuthService){}
 
   onSignInClick() {
     this.submitted = true;
@@ -29,12 +31,12 @@ export class RegistrationComponent {
     this.utilsService.saveObjects("register", userObj).subscribe(
       {
         next: (data)=>{
-          this.utilsService.handleSuccessMessage("Registration Successfull");
+          this.authService.handleSuccessMessage("Registration Successfull");
         },
         error : (er) => {
           console.log("error called");
           
-          this.utilsService.handleErrorMessage(er);
+          this.authService.handleErrorMessage(er);
         }
       }
     )

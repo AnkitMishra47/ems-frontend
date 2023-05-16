@@ -14,7 +14,6 @@ import { HomeComponent } from './component/home/home.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { LoginComponent } from './component/login/login.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AuthGuardService } from 'src/utils/auth.guard';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { ProfileComponent } from './component/profile/profile.component';

@@ -54,6 +54,9 @@ export class UtilsService {
     }
 
     let detailMessage = message?.length > 0 ? message : 'Error Occured';
+
+    console.log(this.msgsService);
+
     this.msgsService.add({ severity: 'error', summary: 'Error', detail: detailMessage });
   }
 

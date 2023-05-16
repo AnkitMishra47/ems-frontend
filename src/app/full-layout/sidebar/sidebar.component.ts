@@ -14,12 +14,15 @@ import { UtilsService } from 'src/utils/utils.service';
 export class SidebarComponent implements OnInit{
   items: MegaMenuItem[];
   verticalItems: MegaMenuItem[];
+  isSideBarComponent : boolean ;
 
   isDesktop = false;
 
   constructor(private authService : AuthService){}
 
   ngOnInit() {
+
+    this.isSideBarComponent = true;
 
     console.log(this.authService.getUser());
     
