@@ -22,7 +22,6 @@ export class LoginComponent {
 
   onLoginClick() {
     this.showLoader = true;
-
     this.submitted = true;
 
     const loginObj = {
