@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Employee Mangement System
+
+- a simple system which performs user authentication
+- performs all CURD Operations
+- Searching of records
+- cool and simple designs
+- exception handling
+
+Link : https://ornate-selkie-6cb0f6.netlify.app 
