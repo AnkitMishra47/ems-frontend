@@ -8,41 +8,43 @@ import { UtilsService } from 'src/utils/utils.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  encapsulation : ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated
 })
+
 export class LoginComponent {
   username: string;
   password: string;
   submitted = false;
   showLoader = false;
 
-  constructor(private utilsService : UtilsService , 
-              private router : Router , 
-              private authService : AuthService){}
+  constructor(private router: Router,
+    private authService: AuthService) { }
 
   onLoginClick() {
     this.showLoader = true;
     this.submitted = true;
 
     const loginObj = {
-      username : this.username,
-      password  : this.password
+      username: this.username,
+      password: this.password
     }
 
     this.authService.login(loginObj).subscribe(
-        (data)=>{
+      {
+        next: (data) => {
           this.authService.handleSuccessMessage("Login Successfull");
 
-          setTimeout(()=>{
+          setTimeout(() => {
             this.router.navigate(['home']);
           }, 1200);
 
           this.showLoader = false;
         },
-        (er) => {
+        error: (er) => {
           this.authService.handleErrorMessage(er);
           this.showLoader = false;
         }
+      }
     )
   }
 }

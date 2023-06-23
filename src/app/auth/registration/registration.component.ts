@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/utils/auth.service';
 import { UtilsService } from 'src/utils/utils.service';
 
@@ -17,8 +18,9 @@ export class RegistrationComponent {
   submitted = false;
   showLoader = false;
 
-  constructor( private utilsService  :UtilsService , 
-              private authService : AuthService){}
+  constructor( private utilsService : UtilsService , 
+              private authService : AuthService,
+              private router : Router){}
 
   onSignInClick() {
     this.submitted = true;
@@ -30,12 +32,12 @@ export class RegistrationComponent {
     }
     this.utilsService.saveObjects("register", userObj).subscribe(
       {
-        next: (data)=>{
+        next: (data) => {
           this.authService.handleSuccessMessage("Registration Successfull");
+          this.router.navigate(['login']);
         },
         error : (er) => {
           console.log("error called");
-          
           this.authService.handleErrorMessage(er);
         }
       }
